@@ -9,7 +9,7 @@ registerForm.addEventListener("submit", (event) => {
     const username = formData.get("username");
     const password = formData.get("password");
 
-    fetch("http://localhost:3000/api/auth/register", {
+    fetch("http://localhost:3000/api/register", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

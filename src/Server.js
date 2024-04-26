@@ -19,7 +19,7 @@ export class Server {
 
     setRoutes() {
         this.app.use(express.static('public'));
-        this.app.use('/api/auth', userRouter);
+        this.app.use('/api', userRouter);
     }
 
     listen(port) {
