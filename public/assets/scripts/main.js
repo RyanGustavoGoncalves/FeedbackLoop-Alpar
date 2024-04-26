@@ -1,10 +1,13 @@
-const usernameEl = document.getElementById("username");
-const passwordEl = document.getElementById("password");
-const submitButton = document.getElementById("submitButton");
+const registerForm = document.getElementById("registerForm");
+const username = document.getElementById("username");
+const password = document.getElementById("password");
 
-submitButton.addEventListener("click", () => {
-    const username = usernameEl.value;
-    const password = passwordEl.value;
+registerForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(registerForm);
+    const username = formData.get("username");
+    const password = formData.get("password");
 
     fetch("http://localhost:3000/api/auth/register", {
         method: "POST",
@@ -13,12 +16,16 @@ submitButton.addEventListener("click", () => {
         },
         body: JSON.stringify({ username, password }),
     })
-        .then((res) => res.json())
-        .then((data) => {
-            if (data.success) {
+        .then((res) => {
+            if (res.ok) {
+                res.json()
                 window.location.href = "/home";
             } else {
-                alert(data.message);
+                throw new Error("Invalid username or password");
             }
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+            alert("An error occurred. Please try again later.");
         });
-})
+});
