@@ -2,17 +2,22 @@
   "name": "feedbackloop-alpar",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon --experimental-modules --es-module-specifier-resolution=node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "Ryan Gustavo Gonçalves",
   "license": "ISC",
   "dependencies": {
+    "@prisma/client": "^5.13.0",
+    "body-parser": "^1.20.2",
     "express": "^4.19.2"
   },
   "devDependencies": {
-    "nodemon": "^3.1.0"
+    "nodemon": "^3.1.0",
+    "prisma": "^5.13.0"
   }
 }
