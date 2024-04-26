@@ -5,30 +5,16 @@ export class UserController {
         this.repository = new UserRepository();
     }
 
-    getAllTasks = async (req, res) => {
-        const allTasks = await this.repository.getTasks();
-        return res.json(allTasks);
-    }
-
-    addTasks = async (req, res) => {
+    registerUser = async (req, res) => {
         const task = req.body;
-        const newTask = await this.repository.createTask(task)
-
+        const newTask = await this.repository.registerUser(task)
+        console.log(newTask);
         return res.json(newTask);
     }
 
-    deleteTasks = async (req, res) => {
-        const id = Number(req.params.id);
-        await this.repository.deleteTask(id)
-
-        return res.json({ ok: "true" });
-    }
-
-    updateTask = async (req, res) => {
-        const id = Number(req.params.id);
-        const task = req.body;
-        const newTask = await this.repository.updateTask({ id, ...task })
-
-        return res.json(newTask);
+    getAllUser = async (req, res) => {
+        const allTask = await this.repository.getAllUser();
+        console.log(allTask);
+        return res.json(allTask);
     }
 }
