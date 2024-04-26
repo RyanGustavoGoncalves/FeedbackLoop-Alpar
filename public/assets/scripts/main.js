@@ -16,7 +16,7 @@ submitButton.addEventListener("click", () => {
         .then((res) => res.json())
         .then((data) => {
             if (data.success) {
-                window.location.href = "/dashboard";
+                window.location.href = "/home";
             } else {
                 alert(data.message);
             }
