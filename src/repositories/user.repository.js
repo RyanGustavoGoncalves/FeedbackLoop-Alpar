@@ -5,41 +5,17 @@ export class UserRepository {
         this.prisma = new PrismaClient();
     }
 
-    async createTask({ name, checked }) {
-        const task = await this.prisma.task.create({
-            data: {
-                name,
-                checked,
-            }
-        });
-        return task;
-    }
-    
-
-    async getTasks() {
-        const tasks = await this.prisma.task.findMany();
-        return tasks;
-    }
-
-    async updateTask({ id, name, checked }) {
-        const task = await this.prisma.task.update({
-            where: {
-                id: id,
-            },
-            data: {
-                name,
-                checked,
-            }
-        });
-
-        return task;
-    }
-
-    async deleteTask(id) {
-        await this.prisma.task.delete({
-            where: {
-                id,
+    async registerUser({ username, password }) {
+        return await this.prisma.user.create({
+            data:
+            {
+                username,
+                password
             }
         })
+    }
+
+    async getAllUser() {
+        return await this.prisma.user.findMany();
     }
 }
