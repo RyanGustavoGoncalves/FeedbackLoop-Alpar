@@ -1,8 +1,8 @@
-import { TasksRepository } from "../repositories/tasks.repository.js";
+import { UserRepository } from "../repositories/user.repository.js";
 
-export class TasksController {
+export class UserController {
     constructor() {
-        this.repository = new TasksRepository();
+        this.repository = new UserRepository();
     }
 
     getAllTasks = async (req, res) => {

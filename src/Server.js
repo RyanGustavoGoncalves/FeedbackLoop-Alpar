@@ -1,5 +1,5 @@
 import express from 'express';
-import { tasksRouter } from './routes/tasks.route.js';
+import { userRouter } from './routes/user.route.js';
 import bodyParser from 'body-parser';
 
 export class Server {
@@ -13,14 +13,14 @@ export class Server {
         this.listen(port);
     }
 
-    setMiddlewares(){
-        this.app.use(bodyParser.urlencoded({extended: false}));
+    setMiddlewares() {
+        this.app.use(bodyParser.urlencoded({ extended: false }));
         this.app.use(bodyParser.json())
     }
 
     setRoutes() {
         this.app.use(express.static('public'));
-        this.app.use('/api/tasks', tasksRouter);
+        this.app.use('/api/auth', userRouter);
     }
 
     listen(port) {

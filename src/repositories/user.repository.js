@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 
-export class TasksRepository {
+export class UserRepository {
     constructor() {
         this.prisma = new PrismaClient();
     }
