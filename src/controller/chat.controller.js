@@ -17,8 +17,8 @@ export class ChatController {
         }
     }
     getAllMessage = async (req, res) => {
-        const allMessage = await this.repository.getAllMessage();
+        const allMessage = await this.repository.getAllMessageWithUser();
         console.log(allMessage);
-        return res.status(201).json(allMessage);
+        return res.status(200).json(allMessage);
     }
 }

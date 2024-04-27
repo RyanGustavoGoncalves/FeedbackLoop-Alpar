@@ -17,12 +17,13 @@ model User {
   id       Int       @id @default(autoincrement())
   username String
   password String
-  messages Message[] @relation("UserMessages")
+  Message  Message[]
 }
 
 model Message {
   id        Int      @id @default(autoincrement())
   text      String
   createdAt DateTime @default(now())
-  user      User[]   @relation("UserMessages")
+  author    User     @relation(fields: [authorId], references: [id])
+  authorId  Int
 }
