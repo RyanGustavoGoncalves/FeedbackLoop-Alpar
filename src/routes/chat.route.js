@@ -6,3 +6,4 @@ const chatController = new ChatController();
 
 chatRouter.post('/send', chatController.send);
 chatRouter.get('/get', chatController.getAllMessage);
+chatRouter.get('/delete', chatController.deleteAllMessage);

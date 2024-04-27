@@ -47,4 +47,8 @@ export class ChatRepository {
             }
         });
     }
+
+    deleteAllMessage = async () => {
+        return await this.prisma.message.deleteMany();
+    }
 }

@@ -1,5 +1,6 @@
 const chatContent = document.getElementById('chat-container');
 const formMessage = document.getElementById("form-message");
+const messageInput = document.querySelector(".message-input");
 const storageUser = JSON.parse(localStorage.getItem("user"));
 
 function renderMessage(message) {
@@ -37,6 +38,7 @@ formMessage.addEventListener('submit', (event) => {
         })
         .then((data) => {
             console.log(data);
+            messageInput.value = "";
             loadMessages();
         })
         .catch((error) => {
@@ -58,6 +60,10 @@ function loadMessages() {
             return res.json();
         })
         .then((data) => {
+            // Limpar o contêiner de mensagens antes de renderizar as mensagens existentes
+            chatContent.innerHTML = "";
+
+            // Renderizar as mensagens
             data.forEach(message => {
                 console.log(message);
                 renderMessage(message);
@@ -67,5 +73,6 @@ function loadMessages() {
             console.error('There was a problem with the request:', error);
         });
 }
+
 
 loadMessages();
