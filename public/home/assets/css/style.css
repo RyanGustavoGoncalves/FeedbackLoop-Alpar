@@ -1,13 +1,5 @@
 .chat-container {
-  max-width: 400px;
-  margin: 40px auto;
-  padding: 20px;
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
+  overflow: auto;
 }
 
 .message {
@@ -22,6 +14,7 @@
   border-radius: 50%;
   object-fit: cover;
   margin-right: 10px;
+  background-color: rgba(119, 119, 119, 0.301);
 }
 
 .message-content {
@@ -51,7 +44,7 @@
 
 input.message-input,
 button.message-submit {
-  width: 70%;
+  width: 90%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -59,5 +52,19 @@ button.message-submit {
 }
 
 button.message-submit {
-  width: 30%;
+  width: 10%;
+}
+
+.align-content {
+  width: 100%;
+  height: 90vh;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 }

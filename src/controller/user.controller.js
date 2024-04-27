@@ -6,12 +6,17 @@ export class UserController {
     }
 
     registerUser = async (req, res) => {
-        const task = req.body;
-        const newTask = await this.repository.registerUser(task)
-        console.log(newTask);
-        return res.json(newTask);
+        const user = req.body;
+        try {
+            const newUser = await this.repository.registerUser(user);
+            console.log(newUser);
+            return res.status(201).json(newUser);
+        } catch (error) {
+            console.error(error);
+            return res.status(500).json({ error: "Internal server error" });
+        }
     }
-
+    
     getAllUser = async (req, res) => {
         const allTask = await this.repository.getAllUser();
         console.log(allTask);
