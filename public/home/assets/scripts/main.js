@@ -2,7 +2,6 @@ const chatContent = document.getElementById('chat-container');
 const formMessage = document.getElementById("form-message");
 const storageUser = JSON.parse(localStorage.getItem("user"));
 
-// Função para renderizar uma mensagem no DOM
 function renderMessage(message) {
     const messageElement = document.createElement('div');
     messageElement.classList.add('message');
@@ -17,7 +16,6 @@ function renderMessage(message) {
     chatContent.appendChild(messageElement);
 }
 
-// Adicionar evento de submissão do formulário
 formMessage.addEventListener('submit', (event) => {
     event.preventDefault();
     const formData = new FormData(formMessage);
@@ -46,7 +44,6 @@ formMessage.addEventListener('submit', (event) => {
         });
 });
 
-// Função para carregar todas as mensagens existentes
 function loadMessages() {
     fetch("http://localhost:3000/api/message/get", {
         method: "GET",
@@ -61,7 +58,6 @@ function loadMessages() {
             return res.json();
         })
         .then((data) => {
-            // Após carregar as mensagens, renderize-as no chatContent
             data.forEach(message => {
                 console.log(message);
                 renderMessage(message);
@@ -72,5 +68,4 @@ function loadMessages() {
         });
 }
 
-// Carregar todas as mensagens ao iniciar a página
 loadMessages();
