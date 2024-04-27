@@ -18,11 +18,15 @@ registerForm.addEventListener("submit", (event) => {
     })
         .then((res) => {
             if (res.ok) {
-                res.json()
-                window.location.href = "/home";
+                return res.json(); // Retornar a promessa
             } else {
                 throw new Error("Invalid username or password");
             }
+        })
+        .then((data) => { // Manipular os dados depois de resolvida a promessa
+            console.log(data);
+            localStorage.setItem("user", JSON.stringify(data));
+            window.location.href = "/home";
         })
         .catch((error) => {
             console.error("Error:", error);

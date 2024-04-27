@@ -17,8 +17,21 @@ export class UserRepository {
             console.error(error);
             throw error;
         }
+    }  
+
+    async getUserById( id ) {
+        try {
+            return await this.prisma.user.findUnique({
+                where: {
+                    id
+                }
+            });
+        } catch (error) {
+            console.error(error);
+            throw error;
+        }
     }
-    
+
     async getAllUser() {
         return await this.prisma.user.findMany();
     }

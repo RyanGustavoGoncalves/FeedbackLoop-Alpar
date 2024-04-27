@@ -1,7 +1,8 @@
 import { Router } from 'express';
-import { UserController } from '../controller/user.controller.js';
+import { ChatController } from '../controller/chat.controller.js';
 
 export const chatRouter = Router();
+const chatController = new ChatController(); 
 
-userRouter.post('/send', userController.registerUser);
-userRouter.get('/getAll', userController.getAllUser);
+chatRouter.post('/send', chatController.send);
+chatRouter.get('/get', chatController.getAllMessage);
