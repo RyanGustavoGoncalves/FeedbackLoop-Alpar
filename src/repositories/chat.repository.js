@@ -8,24 +8,43 @@ export class ChatRepository {
     }
 
     registerMessage = async ({ message, userId }) => {
-        try {
-            const user = await userRepository.getUserById(userId);
-            const newMessage = await this.prisma.message.create({
-                data: {
-                    text: message,
-                    user: { connect: { id: userId } }
+        return await this.prisma.message.create({
+            data: {
+                text: message,
+                author: {
+                    connect: {
+                        id: userId
+                    }
                 }
-            });
-
-            return newMessage;
-        } catch (error) {
-            console.error(error);
-            throw error;
-        }
+            }
+        });
     }
 
     getAllMessage = async () => {
         return await this.prisma.message.findMany();
     }
 
+    getMessageById = async (id) => {
+        return await this.prisma.message.findUnique({
+            where: {
+                id: id
+            }
+        });
+    }
+
+    getMessagesByUserId = async (userId) => {
+        return await this.prisma.message.findMany({
+            where: {
+                authorId: userId
+            }
+        });
+    }
+
+    getAllMessageWithUser = async () => {
+        return await this.prisma.message.findMany({
+            include: {
+                author: true
+            }
+        });
+    }
 }
