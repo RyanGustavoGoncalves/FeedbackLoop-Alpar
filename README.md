@@ -12,13 +12,7 @@ O desenvolvimento desta plataforma foi conduzido pelo instrutor <a href="https:/
 
 A Plataforma de Feedbacks foi construída utilizando as seguintes tecnologias:
 
-- **HTML**: Linguagem de marcação para estruturação do conteúdo da página web.
-- **CSS**: Linguagem de estilização para definir a apresentação visual da página.
-- **JavaScript**: Linguagem de programação para adicionar interatividade e dinamismo à plataforma.
-- **Bootstrap**: Framework de CSS para facilitar o desenvolvimento de interfaces responsivas e atraentes.
-- **Express**: Framework web para Node.js que simplifica a criação de aplicativos web e APIs.
-- **Prisma**: ORM (Object-Relational Mapping) para Node.js que simplifica a interação com bancos de dados SQL.
-- **SQLite**: Banco de dados relacional leve e fácil de usar.
+ [![My Skills](https://skillicons.dev/icons?i=javascript,express,prisma,sqlite,bootstrap,html,css)]([[https://skillicons.dev]])
 
 ## Funcionalidades
 
