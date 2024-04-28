@@ -24,7 +24,6 @@ registerForm.addEventListener("submit", (event) => {
             }
         })
         .then((data) => { // Manipular os dados depois de resolvida a promessa
-            console.log(data);
             localStorage.setItem("user", JSON.stringify(data));
             window.location.href = "/home";
         })
