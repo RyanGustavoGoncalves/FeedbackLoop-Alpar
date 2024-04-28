@@ -18,12 +18,12 @@ registerForm.addEventListener("submit", (event) => {
     })
         .then((res) => {
             if (res.ok) {
-                return res.json(); // Retornar a promessa
+                return res.json();
             } else {
                 throw new Error("Invalid username or password");
             }
         })
-        .then((data) => { // Manipular os dados depois de resolvida a promessa
+        .then((data) => {
             localStorage.setItem("user", JSON.stringify(data));
             window.location.href = "/home";
         })
