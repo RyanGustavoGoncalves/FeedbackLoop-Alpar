@@ -60,12 +60,9 @@ function loadMessages() {
             return res.json();
         })
         .then((data) => {
-            // Limpar o contêiner de mensagens antes de renderizar as mensagens existentes
             chatContent.innerHTML = "";
 
-            // Renderizar as mensagens
             data.forEach(message => {
-                console.log(message);
                 renderMessage(message);
             });
         })

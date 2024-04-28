@@ -6,10 +6,8 @@ export class ChatController {
     }
     send = async (req, res) => {
         const message = req.body;
-        console.log(message);
         try {
             const newMessage = await this.repository.registerMessage(message);
-            console.log(newMessage);
             return res.status(201).json(newMessage);
         } catch (error) {
             console.error(error);
@@ -19,7 +17,6 @@ export class ChatController {
     getAllMessage = async (req, res) => {
         try {
             const allMessage = await this.repository.getAllMessageWithUser();
-            console.log(allMessage);
             return res.status(200).json(allMessage);
         } catch (error) {
             console.error('Error while fetching all messages:', error);
