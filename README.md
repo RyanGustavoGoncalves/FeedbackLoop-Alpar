@@ -12,7 +12,7 @@ O desenvolvimento desta plataforma foi conduzido pelo instrutor <a href="https:/
 
 A Plataforma de Feedbacks foi construída utilizando as seguintes tecnologias:
 
- [![My Skills](https://skillicons.dev/icons?i=javascript,express,prisma,sqlite,bootstrap,html,css)]([[https://skillicons.dev]])
+ [![My Skills](https://skillicons.dev/icons?i=javascript,angular,express,prisma,sqlite,bootstrap,html,css)]([[https://skillicons.dev]])
 
 ## Funcionalidades
 
