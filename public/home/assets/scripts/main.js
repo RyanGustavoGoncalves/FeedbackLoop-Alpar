@@ -3,7 +3,7 @@ angular.module('FeedbackLoopHome', [])
         $scope.userData = JSON.parse(localStorage.getItem("user"));
         $scope.message = "";
         $scope.data = [];
-        $scope.chatContent = document.getElementById("chat-container");
+        $scope.chatContent = document.getElementById("chatContainer");
 
         $scope.submit = () => {
             $http.post("http://localhost:3000/api/message/send", {
@@ -23,7 +23,6 @@ angular.module('FeedbackLoopHome', [])
         $scope.loadMessages = () => {
             $http.get("http://localhost:3000/api/message/get")
                 .then((res) => {
-                    console.log(res);
                     $scope.data = res.data;
                     $timeout(() => {
                         $scope.chatContent.scrollTop = $scope.chatContent.scrollHeight;

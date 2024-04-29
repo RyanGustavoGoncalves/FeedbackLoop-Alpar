@@ -13,7 +13,6 @@ app.controller('FeedbackController', function ($scope, $http) {
             password: $scope.password,
         })
             .then((res) => {
-                console.log(res);
                 localStorage.setItem("user", JSON.stringify(res.data));
                 window.location.href = "/home";
             })
