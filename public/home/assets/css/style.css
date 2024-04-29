@@ -18,12 +18,18 @@
 }
 
 .message-content {
-  background-color: #fff;
-  padding: 10px;
-  border-radius: 10px;
-  flex: 1;
   display: flex;
   flex-direction: column;
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.align-message {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  width: 100%;
 }
 
 .username {
@@ -67,4 +73,9 @@ button.message-submit {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+}
+
+.delete-content {
+  padding: .5rem;
+  cursor: pointer;
 }

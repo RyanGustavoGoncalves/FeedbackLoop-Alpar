@@ -34,5 +34,30 @@ angular.module('FeedbackLoopHome', [])
                 });
         };
 
+        $scope.updateMessage = (id) => {
+            console.log($scope.inputUpdate);
+            $http.put(`http://localhost:3000/api/message/update/${id}`, {
+                message: $scope.inputUpdate
+            })
+                .then((res) => {
+                    $scope.loadMessages();
+                })
+                .catch((error) => {
+                    console.error("Error:", error);
+                    alert("An error occurred. Please try again later.");
+                });
+        }
+
+        $scope.deleteMessage = (id) => {
+            $http.delete(`http://localhost:3000/api/message/delete/${id}`)
+                .then((res) => {
+                    $scope.loadMessages();
+                })
+                .catch((error) => {
+                    console.error("Error:", error);
+                    alert("An error occurred. Please try again later.");
+                });
+        }
+
         $scope.loadMessages();
     });

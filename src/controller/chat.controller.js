@@ -35,11 +35,21 @@ export class ChatController {
     updateMessage = async (req, res) => {
         try {
             const { id } = req.params;
-            const message = req.body;
+            const { message } = req.body;
             const updatedMessage = await this.repository.updateMessage(id, message);
             return res.status(200).json(updatedMessage);
         } catch (error) {
             console.error('Error while updating message:', error);
+            return res.status(500).json({ error: 'Internal server error' });
+        }
+    }
+    deleteMessage = async (req, res) => {
+        try {
+            const { id } = req.params;
+            await this.repository.deleteMessage(id);
+            return res.status(204).send();
+        } catch (error) {
+            console.error('Error while deleting message:', error);
             return res.status(500).json({ error: 'Internal server error' });
         }
     }
