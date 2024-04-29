@@ -28,12 +28,21 @@
                         <span class="message-text">{{message.text}}</span>
                         <span class="timestamp">{{ message.createdAt | date:'short' }}</span>
                     </div>
-                    <div class="delete-content" ng-click="deleteMessage(message.id)">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-x" viewBox="0 0 16 16">
-                            <path
-                                d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
-                        </svg>
+                    <div class="delete-content">
+                        <div class="dropdown">
+                            <button class="btn dropup" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-three-dots" viewBox="0 0 16 16">
+                                    <path
+                                        d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
+                                </svg>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" ng-click="openModal(message.id)">Update</a></li>
+                                <li><a class="dropdown-item" ng-click="deleteMessage(message.id)">Delete</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -44,6 +53,28 @@
             <button type="submit" class="message-submit" id="btn-send" ng-click="submit()">Enviar</button>
         </form>
     </div>
+
+    <div ng-if="modal" class="modal" style="display: block;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Update message</h5>
+                </div>
+                <div class="modal-body newText">
+                    <label for="">Insira o novo texto que deseja salvar</label>
+                    <input type="text" ng-model="inputUpdate">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" ng-click="closeModal()"
+                        data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" ng-click="updateMessage(inputUpdate)">Save
+                        changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
