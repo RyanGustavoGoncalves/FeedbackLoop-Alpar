@@ -5,9 +5,6 @@ app.controller('FeedbackController', function ($scope, $http) {
     $scope.password = "";
 
     $scope.submit = () => {
-        console.log($scope.username);
-        console.log($scope.password);
-
         $http.post("http://localhost:3000/api/register", {
             username: $scope.username,
             password: $scope.password,
