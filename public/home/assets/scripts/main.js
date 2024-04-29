@@ -28,7 +28,6 @@ angular.module('FeedbackLoopHome', [])
                     $timeout(() => {
                         $scope.chatContent.scrollTop = $scope.chatContent.scrollHeight;
                     });
-                    console.log($scope.data);
                 })
                 .catch((error) => {
                     console.error("Error:", error);
