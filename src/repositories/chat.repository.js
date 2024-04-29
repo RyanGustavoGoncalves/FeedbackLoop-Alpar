@@ -51,4 +51,15 @@ export class ChatRepository {
     deleteAllMessage = async () => {
         return await this.prisma.message.deleteMany();
     }
+
+    updateMessage = async (id, message) => {
+        return await this.prisma.message.update({
+            where: {
+                id: id
+            },
+            data: {
+                text: message
+            }
+        });
+    }
 }
