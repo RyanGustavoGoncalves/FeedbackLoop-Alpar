@@ -15,6 +15,7 @@ function renderMessage(message) {
         </div>
     `;
     chatContent.appendChild(messageElement);
+    chatContent.scrollTop = chatContent.scrollHeight;
 }
 
 formMessage.addEventListener('submit', (event) => {
